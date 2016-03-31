@@ -1,4 +1,5 @@
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /*
@@ -58,20 +59,34 @@ public class RockPaperScissor{
 	
 	public String findWinner(){
 		String result;
+<<<<<<< Updated upstream
 		String[] winningSet = { "p1", "p2", "r0", "r2", "s0", "s1" }; 
 		String[] winnerMap = { "user", "comp", "comp", "user", "user", "comp" };
+=======
+		Map winnerMap = new HashMap();
+		winnerMap.put("p1", "user");
+		winnerMap.put("p2", "comp");
+		winnerMap.put("r0", "comp");
+		winnerMap.put("r2", "user");
+		winnerMap.put("s0", "user");
+		winnerMap.put("s1", "comp");
+		
+>>>>>>> Stashed changes
 		char userInput = this.getUserInput();
 		int compInput = this.getCompInput();
 		
 		String combination = userInput + Integer.toString(compInput);
-		int index = Arrays.asList( winningSet ).indexOf( combination );
+		result = winnerMap.get( combination ) == null ? "tie" : winnerMap.get( combination ).toString();
 		
+<<<<<<< Updated upstream
 		if( index == -1 ) {
 			result = "tie";
 		}
 		else {
 			result = winnerMap[ index ];
 		}
+=======
+>>>>>>> Stashed changes
 		return result;
 	}
 	
