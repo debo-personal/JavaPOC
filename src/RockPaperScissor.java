@@ -58,6 +58,8 @@ public class RockPaperScissor{
 	
 	public String findWinner(){
 		String result;
+		String[] winningSet = { "p1", "p2", "r0", "r2", "s0", "s1" }; 
+		String[] winnerMap = { "user", "comp", "comp", "user", "user", "comp" };
 		char userInput = this.getUserInput();
 		int compInput = this.getCompInput();
 		
@@ -66,6 +68,9 @@ public class RockPaperScissor{
 		
 		if( index == -1 ) {
 			result = "tie";
+		}
+		else {
+			result = winnerMap[ index ];
 		}
 		return result;
 	}
