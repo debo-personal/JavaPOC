@@ -59,7 +59,7 @@ public class RockPaperScissor{
 	
 	public String findWinner(){
 		String result;
-		Map winnerMap = new HashMap();
+		Map<String,String> winnerMap = new HashMap<String, String>();
 		winnerMap.put("p1", "user");
 		winnerMap.put("p2", "comp");
 		winnerMap.put("r0", "comp");
