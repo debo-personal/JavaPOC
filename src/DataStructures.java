@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class DataStructures {
 		arrayList.add(1, "added"); // it adds the value in the mentioned index and shifts the further elements. Performance O(n) here
 		print( "New ArrayList: " + arrayList );
 		//updating existing one
-		arrayList.set(2,"updated Hello");
+		arrayList.set(2,"updated");
 		print( "New ArrayList: " + arrayList );
 		arrayList.remove("Bye");
 		print( "ArrayList after removal : " + arrayList );
@@ -41,13 +42,20 @@ public class DataStructures {
 		// Looping over the list
 		print("For Loop demo: ");
 		for(int i = 0; i < arrayList.size();i++ ) {
-			System.out.print(arrayList.get(i));
+			System.out.print(arrayList.get(i) + " ");
 		}
-		
+		print("");
 		print("Advanced For loop: ");
 		for(String element: arrayList){
-			System.out.print(element);
+			System.out.print(element + " ");
 		}
+		print("");
+		// Sorting
+
+		arrayList.add( 1, "xyzsdkjk");
+		print("Unsorted List is : " + arrayList );
+		Collections.sort( arrayList );
+		print("Sorted list is :" + arrayList );
 	}
 	
 	/* LinkedList is preferable over ArrayList for element addition and deletion 
@@ -59,7 +67,7 @@ public class DataStructures {
 		print("Current List:" + linkedList );
 		linkedList.addFirst("First Element");
 		print("Current List:" + linkedList );
-		linkedList.add(1,"New");
+		linkedList.add( 1, "New" );
 		print("Current List:" + linkedList );
 		linkedList.add("New");
 		print("Current List:" + linkedList );
