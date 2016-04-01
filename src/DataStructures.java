@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -9,8 +11,62 @@ public class DataStructures {
 		javaStructures.testStack();
 		System.out.println("==================================================");
 		javaStructures.testMap();
+		System.out.println("==================================================");
+		javaStructures.testArrayList();
+		System.out.println("==================================================");
+		javaStructures.testLinkedList();
 	}
 	
+	/* ArrayList is preferable over LinkedList for element search.
+	 * Complexity : O(1) wherein O(n) in LinkedList
+	 * */
+	private void testArrayList() {
+		ArrayList<String> arrayList = new ArrayList<String>();
+		arrayList.add("Hi");
+		arrayList.add("Hello");
+		arrayList.add("Bye");
+		print( "Initial ArrayList: " + arrayList );
+		arrayList.add(1, "added"); // it adds the value in the mentioned index and shifts the further elements. Performance O(n) here
+		print( "New ArrayList: " + arrayList );
+		//updating existing one
+		arrayList.set(2,"updated Hello");
+		print( "New ArrayList: " + arrayList );
+		arrayList.remove("Bye");
+		print( "ArrayList after removal : " + arrayList );
+		//Search
+		print("Does arraylist conatin 'hi'? "+ arrayList.contains("Hi"));
+		print("Index of 'Hi': " + arrayList.indexOf("Hi"));
+		print("Value at index 2: " + arrayList.get(2) );
+		
+		// Looping over the list
+		print("For Loop demo: ");
+		for(int i = 0; i < arrayList.size();i++ ) {
+			System.out.print(arrayList.get(i));
+		}
+		
+		print("Advanced For loop: ");
+		for(String element: arrayList){
+			System.out.print(element);
+		}
+	}
+	
+	/* LinkedList is preferable over ArrayList for element addition and deletion 
+	 * Complexity: O(1) wherein O(n) in arrayList for worst case scenario
+	 * */
+	private void testLinkedList() {
+		LinkedList<String> linkedList = new LinkedList<String>();
+		linkedList.addLast("Last Element");
+		print("Current List:" + linkedList );
+		linkedList.addFirst("First Element");
+		print("Current List:" + linkedList );
+		linkedList.add(1,"New");
+		print("Current List:" + linkedList );
+		linkedList.add("New");
+		print("Current List:" + linkedList );
+		linkedList.removeLastOccurrence("New");
+		print("Current List:" + linkedList );
+	}
+
 	private void testMap() {
 		Map map = new HashMap();
 		map.put("animal","tiger");
