@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class DataStructures {
 	public static void main( String[] args ) {
@@ -16,6 +21,51 @@ public class DataStructures {
 		javaStructures.testArrayList();
 		System.out.println("==================================================");
 		javaStructures.testLinkedList();
+		System.out.println("==================================================");
+		javaStructures.testSet();
+		System.out.println("==================================================");
+		javaStructures.testTreeMap();
+	}
+	
+	private void testTreeMap() {
+		TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
+		treeMap.put(1, "val1");
+		treeMap.put(4, "val4");
+		treeMap.put(3, "val3");
+		treeMap.put(2, "val2");
+		
+		print("TreeMap :" + treeMap );
+		Set set = treeMap.entrySet();
+		Iterator iterator = set.iterator();
+		
+		while(iterator.hasNext()) {
+			Map.Entry tMap = (Map.Entry)iterator.next();
+			print(tMap.getKey() + " : " + tMap.getValue());
+		}
+	}
+
+	private void testSet() {
+		//HashSet: Unordered collection
+		HashSet<String> hashSet = new HashSet<String>();
+		hashSet.add("hi");
+		hashSet.add("hello");
+		hashSet.add("okay");
+		hashSet.add("bye");
+		print("Current HashSet is: " + hashSet ); // So, this proves that there is no guarantee of the order.
+		
+		TreeSet<String> treeSet = new TreeSet<String>();
+		treeSet.add("Akash");
+		treeSet.add("Ali");
+		treeSet.add("Debo");
+		treeSet.add("Chayan");
+		treeSet.add("Bob");
+		print("Current TreeSet is :" + treeSet ); // Sorted List
+		
+		LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+		lhs.add("first");
+		lhs.add("second");
+		lhs.add("third");
+		print("Current LinkedHashSet is :" + lhs ); // these entries are sorted as per insertion order 
 	}
 	
 	/* ArrayList is preferable over LinkedList for element search.
